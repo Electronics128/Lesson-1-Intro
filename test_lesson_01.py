@@ -1,24 +1,48 @@
-# test_lesson_01.py
-import subprocess
+import lesson_01
 
-def test_exercise_01():
-    # Run the student's code (assuming the filename is exercise-01.py)
-    result = subprocess.run(['python3', 'exercise-01.py'], capture_output=True, text=True)
-    output = result.stdout.strip().splitlines()
+def test_todo_1():
+    assert lesson_01.x == 10  # Check if x is assigned the value 10.
 
-    # Test results for each exercise based on the expected output
-    assert output[0] == 'Exercise 1: 10', f"Expected 'Exercise 1: 10', but got {output[0]}"
-    assert output[1] == 'Exercise 2: John Doe', f"Expected 'Exercise 2: John Doe', but got {output[1]}"
-    assert output[2] == 'Exercise 3: Sum = 8, Difference = 2, Product = 15, Quotient = 1.6666666666666667', f"Unexpected result for Exercise 3: {output[2]}"
-    assert output[3] == 'Exercise 4: a = 20, b = 10', f"Expected 'Exercise 4: a = 20, b = 10', but got {output[3]}"
-    assert output[4] == 'Exercise 5: 7 is odd', f"Expected 'Exercise 5: 7 is odd', but got {output[4]}"
-    assert output[5] == 'Exercise 6: You are 25 years old', f"Expected 'Exercise 6: You are 25 years old', but got {output[5]}"
-    assert output[6] == 'Exercise 7: Length of string = 18', f"Expected 'Exercise 7: Length of string = 18', but got {output[6]}"
-    assert output[7] == 'Exercise 8: a AND b = False, a OR b = True, NOT a = False', f"Unexpected result for Exercise 8: {output[7]}"
-    assert output[8] == 'Exercise 9: Square of 4 = 16', f"Expected 'Exercise 9: Square of 4 = 16', but got {output[8]}"
-    assert output[9] == 'Exercise 10: Hello, Alice, you are 30 years old.', f"Expected 'Exercise 10: Hello, Alice, you are 30 years old.', but got {output[9]}"
+def test_todo_2():
+    assert hasattr(lesson_01, "first_name"), "first_name variable not found."
+    assert hasattr(lesson_01, "last_name"), "last_name variable not found."
+    full_name = f"{lesson_01.first_name} {lesson_01.last_name}"
+    assert full_name.strip() == lesson_01.full_name  # Assuming full_name is stored.
 
-    print("Test passed!")
+def test_todo_3():
+    assert lesson_01.a == 5, "Variable 'a' should be 5."
+    assert lesson_01.b == 3, "Variable 'b' should be 3."
+    assert lesson_01.sum_result == 8, "Sum is incorrect."
+    assert lesson_01.diff_result == 2, "Difference is incorrect."
+    assert lesson_01.prod_result == 15, "Product is incorrect."
+    assert lesson_01.quot_result == 5 / 3, "Quotient is incorrect."
 
-if __name__ == "__main__":
-    test_exercise_01()
+def test_todo_4():
+    assert lesson_01.a == 20, "Variable 'a' value is not swapped."
+    assert lesson_01.b == 10, "Variable 'b' value is not swapped."
+
+def test_todo_5():
+    assert lesson_01.number == 7, "Variable 'number' should be 7."
+    assert lesson_01.even_or_odd == "odd", "Number parity check is incorrect."
+
+def test_todo_6():
+    assert lesson_01.age == 25, "Age should be 25 for testing purposes."  # Adjust expected value.
+    assert lesson_01.age_message == "You are 25 years old.", "Age message is incorrect."
+
+def test_todo_7():
+    assert lesson_01.string_length == 18, "String length should be 18."
+
+def test_todo_8():
+    assert lesson_01.a is True, "Variable 'a' should be True."
+    assert lesson_01.b is False, "Variable 'b' should be False."
+    assert lesson_01.and_result is False, "'a and b' result is incorrect."
+    assert lesson_01.or_result is True, "'a or b' result is incorrect."
+    assert lesson_01.not_a_result is False, "'not a' result is incorrect."
+
+def test_todo_9():
+    assert lesson_01.number_to_square == 4, "Variable 'number_to_square' should be 4."
+    assert lesson_01.square_result == 16, "Square calculation is incorrect."
+
+def test_todo_10():
+    expected_message = "Hello, Alice, you are 30 years old."
+    assert lesson_01.formatted_message == expected_message, "Formatted message is incorrect."
